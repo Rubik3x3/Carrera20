@@ -1,7 +1,9 @@
 import os
 
-numeroFin = 0
-sumas = 0
+numeroFin = 20
+numeroAct = 0
+turno = 1
+turnoGanador = 0
 
 
 def title():
@@ -19,11 +21,23 @@ def clear():
         os.system("clear")
 
 
+while numeroAct < numeroFin:
+
+    clear()
+    title()
+    print("\nNumero: ", numeroAct)
+    print("Turno: Jugador ", turno)
+    num = int(input("Con cuanto va a sumar? [1/2]"))
+    if num == 1 or num == 2:
+        numeroAct += num
+        turnoGanador = turno
+        if turno == 1:
+            turno = 2
+        else:
+            turno = 1
+
+
 clear()
 title()
-
-numeroFin = int(input("Ingrese el número al que hay que llegar: "))
-sumas = int(input("Ingrese el número máximo que se puede sumar: "))
-
-clear()
-title()
+print("\nNumero: ", numeroAct)
+print(f'El jugador {turnoGanador} gano!')
